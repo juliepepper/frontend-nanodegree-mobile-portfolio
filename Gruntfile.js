@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 
         files:[{
           expand: true,
-          cwd: 'src/views/images/',
+          cwd: 'views/images/',
           src: ['**/*.png'],
           dest: 'dist/views/images/',
           ext: '.png'
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'src/',
+          cwd: '/',
           src: ['**/*.jpg'],
           dest: 'dist',
           ext: '.jpg'
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
       target: {
         files: [{
           expand: true,
-          cwd: 'src/',
+          cwd: '/',
           src:['**/*.css'],
           dest: 'dist',
           ext: '.css'
@@ -52,11 +52,11 @@ module.exports = function(grunt) {
               collapseWhitespace: true
             },
           files: {                                   // Dictionary of files
-              'dist/index.html': 'src/index.html',     // 'destination': 'source'
-              'dist/project-2048.html': 'src/project-2048.html',
-              'dist/project-mobile.html': 'src/project-mobile.html',
-              'dist/project-webperf.html': 'src/project-webperf.html',
-              'dist/views/pizza.html': 'src/views/pizza.html'
+              'dist/index.html': 'index.html',     // 'destination': 'source'
+              'dist/project-2048.html': 'project-2048.html',
+              'dist/project-mobile.html': 'project-mobile.html',
+              'dist/project-webperf.html': 'project-webperf.html',
+              'dist/views/pizza.html': 'views/pizza.html'
             }
         }
     },
@@ -66,8 +66,8 @@ module.exports = function(grunt) {
       },
       my_target:{
         files: {
-        'dist/js/perfmatters.js': ['src/js/perfmatters.js'],
-        'dist/views/js/main.js':  ['src/views/js/main.js']
+        'dist/js/perfmatters.js': ['js/perfmatters.js'],
+        'dist/views/js/main.js':  ['views/js/main.js']
         }
       }
     }
