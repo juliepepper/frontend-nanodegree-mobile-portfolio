@@ -4,6 +4,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-respimg');
 
   grunt.initConfig({
     imagemin: {
@@ -71,12 +72,25 @@ module.exports = function(grunt) {
         }
       }
     }
+    grunt.initConfig({
+  respimg: {
+    default: {
+      options: {
+        widths: [200, 400]
+      },
+      files: [{
+        expand: true,
+        cwd: 'views/img/pizzeria.jpg',
+        src: ['**.{jpg}'],
+        dest: 'build/img/'
+      }]
+    }
+  },
+});
 
-
-  });
-
-  grunt.registerTask('default',['imagemin']);
+  grunt.registerTask('default', ['imagemin']);
   grunt.registerTask('default', ['htmlmin']);
   grunt.registerTask('default', ['cssmin']);
   grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['grunt-respimg']);
 };
