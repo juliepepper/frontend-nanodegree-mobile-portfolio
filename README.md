@@ -1,11 +1,5 @@
 ## Website Performance Optimization portfolio project
 
-1. Download and install ngrok and copy the local URL from ngrok to try running it through Pagespeed Insights.
-
-2. Install Grunt and create a package.json and a Gruntfile.js where I list the devDependencies and grunt tasks I hope to utilize to accelerate page speed.
-
-3. After loading all plugins and registering all tasks, I put the URL through PageSpeed Insights, again and again, adding "grunt-respimg" to get a better pagespeed, and manually resizing the views/img/pizza.jpg through preview, as well as running it through imageOptim, which finally gave me a 96/100 for mobile, and a 90/100 for desktop.
-
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 To get started, check out the repository, inspect the code,
