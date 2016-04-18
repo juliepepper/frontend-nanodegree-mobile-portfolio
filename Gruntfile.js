@@ -71,9 +71,8 @@ module.exports = function(grunt) {
         'dist/views/js/main.js':  ['views/js/main.js']
         }
       }
-    }
-    grunt.initConfig({
-  respimg: {
+    },
+
     default: {
       options: {
         widths: [200, 400]
@@ -88,9 +87,10 @@ module.exports = function(grunt) {
   },
 });
 
-  grunt.registerTask('default', ['imagemin']);
-  grunt.registerTask('default', ['htmlmin']);
-  grunt.registerTask('default', ['cssmin']);
-  grunt.registerTask('default', ['uglify']);
-  grunt.registerTask('default', ['grunt-respimg']);
+  grunt.registerTask('default', ['imagemin', 'htmlmin', 'cssmin', 'uglify', 'grunt-respimg']);
+  //grunt.registerTask('default', ['imagemin']);
+  //grunt.registerTask('default', ['htmlmin']);
+  //grunt.registerTask('default', ['cssmin']);
+  //grunt.registerTask('default', ['uglify']);
+  //grunt.registerTask('default', ['grunt-respimg']);
 };
