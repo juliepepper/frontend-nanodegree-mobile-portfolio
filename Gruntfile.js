@@ -1,10 +1,9 @@
 module.exports = function(grunt) {
-//load plugins
+  //load plugins
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-respimg');
 
   grunt.initConfig({
     imagemin: {
@@ -13,9 +12,9 @@ module.exports = function(grunt) {
           optimizationLevel: 7
         },
 
-        files:[{
+        files: [{
           expand: true,
-          cwd: 'views/images/',
+          cwd: 'src/views/images/',
           src: ['**/*.png'],
           dest: 'dist/views/images/',
           ext: '.png'
@@ -27,7 +26,7 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: '/',
+          cwd: 'src/',
           src: ['**/*.jpg'],
           dest: 'dist',
           ext: '.jpg'
@@ -35,40 +34,40 @@ module.exports = function(grunt) {
         }]
       }
     },
-    cssmin:{
+    cssmin: {
       target: {
         files: [{
           expand: true,
-          cwd: '/',
-          src:['**/*.css'],
+          cwd: 'src/',
+          src: ['**/*.css'],
           dest: 'dist',
           ext: '.css'
         }]
       }
     },
     htmlmin: {
-      dist: {                                      // Target
-            options: {                                 // Target options
-              removeComments: true,
-              collapseWhitespace: true
-            },
-          files: {                                   // Dictionary of files
-              'dist/index.html': 'index.html',     // 'destination': 'source'
-              'dist/project-2048.html': 'project-2048.html',
-              'dist/project-mobile.html': 'project-mobile.html',
-              'dist/project-webperf.html': 'project-webperf.html',
-              'dist/views/pizza.html': 'views/pizza.html'
-            }
+      dist: { // Target
+        options: { // Target options
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: { // Dictionary of files
+          'dist/index.html': 'src/index.html', // 'destination': 'source'
+          'dist/project-2048.html': 'src/project-2048.html',
+          'dist/project-mobile.html': 'src/project-mobile.html',
+          'dist/project-webperf.html': 'src/project-webperf.html',
+          'dist/views/pizza.html': 'src/views/pizza.html'
         }
+      }
     },
     uglify: {
       options: {
         mangle: false
       },
-      my_target:{
+      my_target: {
         files: {
-        'dist/js/perfmatters.js': ['js/perfmatters.js'],
-        'dist/views/js/main.js':  ['views/js/main.js']
+          'dist/js/perfmatters.js': ['src/js/perfmatters.js'],
+          'dist/views/js/main.js': ['src/views/js/main.js']
         }
       }
     },
@@ -79,15 +78,14 @@ module.exports = function(grunt) {
       },
       files: [{
         expand: true,
-        cwd: 'views/img/pizzeria.jpg',
+        cwd: 'src/views/img/pizzeria.jpg',
         src: ['**.{jpg}'],
         dest: 'build/img/'
       }]
     }
-  },
-});
+  });
 
-  grunt.registerTask('default', ['imagemin', 'htmlmin', 'cssmin', 'uglify', 'grunt-respimg']);
+  grunt.registerTask('default', ['imagemin', 'htmlmin', 'cssmin', 'uglify']);
   //grunt.registerTask('default', ['imagemin']);
   //grunt.registerTask('default', ['htmlmin']);
   //grunt.registerTask('default', ['cssmin']);

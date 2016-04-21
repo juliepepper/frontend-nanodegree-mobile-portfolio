@@ -281,8 +281,8 @@ function getNoun(y) {
       return scifi_default;
   }
 }
-
-var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
+//made noise, noisy to match switch case in the getadj function
+var adjectives = ["dark", "color", "whimsical", "shiny", "noisy", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
 var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
 
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
@@ -502,10 +502,17 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectoAll('.mover');
+  var items = document.querySelectorAll('.mover');
+  //moved the scrolltop method outside the loop to improve efficiency
+  var top = (document.body.scrollTop / 1250);
+
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    var phase = Math.sin(top + (i % 5));
+    //items[i].style.left = items[i].basicLeft + 100 * phase + 'px'; add translate x and z to improve
+    //animation performance
+       var left = -items[i].basicLeft + 1000 * phase + 'px';
+       //added translateX and translateZ(0)
+        items[i].style.transform = "translateX("+left+") translateZ(0)";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -519,13 +526,15 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
-
-// Generates the sliding pizzas when the page loads.
+//added updatePositions parameter to window.requestAnimationFrame method to optimize animations
+window.addEventListener('scroll', function() {
+  window.requestAnimationFrame(updatePositions);
+});
+// Generates the sliding pizzas when the page loads. Changed 200 to 24 in for loop to lower the times the sliding pizzas generate.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < 24; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
