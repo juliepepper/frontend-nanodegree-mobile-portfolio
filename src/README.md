@@ -64,9 +64,9 @@ Applied TranslateX() and TranslateZ(0) to updatePositions function.
 Fixed a typo in the global adjectives array to match the getAdj function name "noisy" so that "noise," read "noisy".
 
 Moved the calculation which controls scroll top method, outside the loop to improve efficiency.
+Resized the pizzas to improve efficiency: moved determineDx out of loop, moved newwidth calculation, and created a new variable to hold all of the .randomPizzaContainer elements in the document looping through the elements to apply the new width value.
 
 Optimized concurrent animations that run together into a single reflow and repaint cycle by adding the updateFunctions parameter to the window.requestAnimationFrame method in the scroll event listener.
-
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
