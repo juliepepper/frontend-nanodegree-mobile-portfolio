@@ -28,7 +28,7 @@ Some useful tips to help you get started:
 
 1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
 
-2. Copied the public URL ngrok gave: https://21375a3c.ngrok.io and ran it through PageSpeed Insights.
+2. Copied the public URL ngrok gave: https://9accfe81.ngrok.io/dist/ and ran it through PageSpeed Insights.
 
 Started with a score of 29/100 on mobile and roughly the same on desktop.  Took suggestions of optimizing images and minifying files and looked to optimize through grunt.
 
@@ -44,7 +44,7 @@ Started with a score of 29/100 on mobile and roughly the same on desktop.  Took 
 
  Modified Gruntfile.js and package.json and ran it again.
 
- Got an improved pagespeed score of 96/100 for mobile and 90/100 for desktop.
+ Got an improved pagespeed score of 96/100 for mobile and 97100 for desktop.
 
 Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
